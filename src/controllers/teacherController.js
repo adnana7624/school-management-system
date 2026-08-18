@@ -7,11 +7,10 @@ import { uploadOnCloudinary } from "../middleware/cloudinary.js";
 
 export const createTeacher = async(req , res)=>{
     try {
-        const {
-            name,email,password , phone , qualification , address , joiningDate } = req.body;
+        const {name,email,password , phone , qualification , address , joiningDate,gender } = req.body;
 
         // checck all field are send by frontend
-        if(!name ||!email ||!password ||!phone ){
+        if(!name ||!email ||!password ||!phone || !gender){
             return res.status(400).json({message : "all fields are required"})
         }
 
@@ -43,6 +42,7 @@ export const createTeacher = async(req , res)=>{
             name,
             email,
             password : hashPassword,
+            gender,
             role : "teacher"
         })
 

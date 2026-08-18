@@ -13,6 +13,10 @@ const userschema = new mongoose.Schema({
         lowercase : true,
         trim : true
     },
+    gender:{
+        type : String,
+        enum :["male", "female", "other"]
+    },
     password:{
         type : String,
         required : true,
