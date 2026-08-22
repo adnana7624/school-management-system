@@ -8,11 +8,11 @@ const createAdmin = async(req , res)=>{
         await connectDB();
 
         // check if admin already exist
-        // const existingAdmin = await User.findOne({role:"admin"})
-        // if(existingAdmin){
-        //     console.log("admin already exist")
-        //     process.exit(0);
-        // }
+        const existingAdmin = await User.findOne({role:"admin"})
+        if(existingAdmin){
+            console.log("admin already exist")
+            process.exit(0);
+        }
         
         // encypt password
         const hashedPassword = await bcrypt.hash("12345678",10)
