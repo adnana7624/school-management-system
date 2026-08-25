@@ -32,6 +32,6 @@ const teacherschema = new mongoose.Schema({
     profileImage : {
         type : String
     }
-},{timeseries : true})
+},{timestamps : true})
 
 export const Teacher = mongoose.model("Teacher",teacherschema);
