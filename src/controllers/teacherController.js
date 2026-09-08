@@ -23,6 +23,7 @@ export const createTeacher = async(req , res)=>{
         // gerenate employeeId
         // const teacherCount = await Teacher.countDocuments();
         //const employeeId = `T-${String(teacherCount + 1).padStart(3,"0")}`;
+        
         const employeeId = await generateEmployeId();
 
         // encrypt password
@@ -69,3 +70,4 @@ export const createTeacher = async(req , res)=>{
         })
     }
 }
+
