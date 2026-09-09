@@ -71,3 +71,24 @@ export const createTeacher = async(req , res)=>{
     }
 }
 
+export const deleteTeacher = async(req , res) => {
+    try {
+        const {id} = req.params;
+
+        const teacher = await Teacher.findById(id)
+        if(!teacher){
+            return res.status(404).json({message : "teacher not found to delete"})
+        }
+
+        await Teacher.findByIdAndDelete(id);
+
+        return res.status(200).json({message : "teacher deleted successfully"});
+
+
+    } catch (error) {
+        return res.status(500).json({
+            success : false,
+            message : error.message
+        })
+    }
+}
