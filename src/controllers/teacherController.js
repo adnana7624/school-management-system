@@ -71,6 +71,26 @@ export const createTeacher = async(req , res)=>{
     }
 }
 
+export const getTeacher = async(req , res) =>{
+    try {
+        const adminId = req.user.id;
+
+        const teacher = await Teacher.find(adminId);
+        
+        return res.status(200).json({
+            success : true,
+            count : teacher.length,
+            teacher
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            success : false,
+            message : error.message
+        })
+    }
+}
+
 export const deleteTeacher = async(req , res) => {
     try {
         const {id} = req.params;

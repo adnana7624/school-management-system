@@ -2,7 +2,7 @@ import express from "express";
 import { getMe, login } from "../controllers/userController.js";
 import {auth} from "../middleware/authMiddleware.js";
 import { authorizeRoles } from "../middleware/roleMiddleware.js";
-import { upload } from "../middleware/multer.js";
+
 
 export const router = express.Router();
 
@@ -19,4 +19,3 @@ router.get("/admin-test",auth , authorizeRoles("admin"),
         })
     }
 )
-
