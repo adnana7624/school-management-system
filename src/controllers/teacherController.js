@@ -38,18 +38,13 @@ export const createTeacher = async(req , res)=>{
             }
         }
 
-        // create user
-        const user = await User.create({
+        // create teacher profile
+        const teacher = await Teacher.create({
             name,
             email,
             password : hashPassword,
             gender,
-            role : "teacher"
-        })
-
-        // create teacher profile
-        const teacher = await Teacher.create({
-            user : user._id,
+            role : "teacher",
             employeeId,
             phone,
             qualification,

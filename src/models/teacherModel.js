@@ -1,11 +1,30 @@
 import mongoose from "mongoose";
 
 const teacherschema = new mongoose.Schema({
-    user : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "User",
+    name : {
+        type : String,
         required : true,
-        unique : true
+        trim : true
+    },
+    email : {
+        type : String,
+        required : true,
+        unique : true,
+        lowercase : true
+    },
+    password : {
+        type : String,
+        required : true
+    },
+    gender :{
+        type : String,
+        enum : ["male","female","other"],
+        default : ""
+    },
+    role : {
+        type : String,
+        enum : ["teacher"],
+        default : ""
     },
     employeeId:{
         type : String,

@@ -8,7 +8,7 @@ const createAdmin = async(req , res)=>{
         await connectDB();
 
         // check if admin already exist
-        const existingAdmin = await User.findOne({role:"admin"})
+        const existingAdmin = await User.findOne({role:"superadmin"})
         if(existingAdmin){
             console.log("admin already exist")
             process.exit(0);
@@ -25,9 +25,10 @@ const createAdmin = async(req , res)=>{
             role : "superadmin"
         })
         
-        console.log("Admin created succesfully")
+        console.log("super Admin created succesfully")
 
         process.exit(0);
+        
     } catch (error) {
         console.log(error)
         process.exit(1);
