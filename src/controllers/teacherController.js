@@ -68,9 +68,9 @@ export const createTeacher = async(req , res)=>{
 
 export const getTeacher = async(req , res) =>{
     try {
-        const adminId = req.user.id;
+        //const adminId = req.user.id;
 
-        const teacher = await Teacher.find(adminId);
+        const teacher = await Teacher.find();
         
         return res.status(200).json({
             success : true,
